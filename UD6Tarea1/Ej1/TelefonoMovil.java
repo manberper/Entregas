@@ -61,8 +61,8 @@ public class TelefonoMovil implements Comparable<Contacto> {
 
     public void queryContact(String clave) {
         boolean encontrado = false;
-        String claveLower = clave.toLowerCase(); // Convertir a minúsculas para coincidencias insensibles a mayúsculas
-
+        String claveLower = clave.toLowerCase();
+        
         for (Contacto contacto : myContacts) {
             if (contacto.name.toLowerCase().contains(claveLower) || contacto.phoneNumber.contains(clave)) {
                 System.out.println(contacto.toString());
