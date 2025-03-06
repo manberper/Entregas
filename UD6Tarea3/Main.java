@@ -12,10 +12,8 @@ public class Main {
         boolean jugarDeNuevo = true;
 
         while (jugarDeNuevo) {
-            // Iniciar el juego
             iniciarJuego();
 
-            // Preguntar al usuario si desea jugar de nuevo
             System.out.print("¿Deseas jugar de nuevo? (S/N): ");
             String respuesta = sc.nextLine().toUpperCase();
 
@@ -29,34 +27,28 @@ public class Main {
     }
 
     public static void iniciarJuego() {
-        // Crear el mapa de ubicaciones
         creaMapa();
 
-        // Empezar en la ubicación 0 (Clase de programación)
         int ubicacionActual = 0;
         boolean juegoActivo = true;
 
         while (juegoActivo) {
-            // Obtener la ubicación actual
             Ubicacion ubicacion = ubicaciones.get(ubicacionActual);
             System.out.println(ubicacion.getDescripcion());
 
-            // Mostrar las salidas válidas
+            // Mostrar las salidas
             System.out.print("Tus salidas válidas son: ");
             for (Map.Entry<String, Integer> exit : ubicacion.getExits().entrySet()) {
                 System.out.print(exit.getKey() + " ");
             }
             System.out.println();
 
-            // Leer y validar la dirección del usuario
             String direccion = validarEntrada(ubicacion);
 
-            // Validar la dirección
             if (direccion.equals("Q")) {
                 System.out.println("Has salido del juego.");
                 juegoActivo = false; // Terminar el bucle del juego
             } else {
-                // Mover a la nueva ubicación
                 ubicacionActual = ubicacion.getExits().get(direccion);
             }
         }
@@ -68,10 +60,9 @@ public class Main {
             System.out.print("Elige una dirección (o Q para salir): ");
             String entrada = sc.nextLine().toUpperCase();
 
-            // Verificar si la entrada es válida
             if (ubicacion.getExits().containsKey(entrada) || entrada.equals("Q")) {
                 valido = true;
-                return entrada; // La entrada es válida
+                return entrada;
             } else {
                 System.out.println("Entrada no válida. Por favor, elige una dirección válida.");
             }
