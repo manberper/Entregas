@@ -48,11 +48,11 @@ public class Usuario {
         c = o.getClass();
 
         return  "\n <" + Usuario.class.getSimpleName() + ">" +
-                "\n     <"+o.getClass().getDeclaredFields()[0].getName()+">"+ idUsuario +"<"+o.getClass().getDeclaredFields()[0].getName()+ ">" +
-                "\n     <"+o.getClass().getDeclaredFields()[1].getName()+">" + nombre + "<"+o.getClass().getDeclaredFields()[1].getName()+ ">" +
-                "\n     <"+o.getClass().getDeclaredFields()[2].getName()+">" + mail + "<"+o.getClass().getDeclaredFields()[2].getName()+">" +
-                "\n     <"+o.getClass().getDeclaredFields()[3].getName()+">" + fRegistro + "<"+o.getClass().getDeclaredFields()[3].getName()+">" +
-                "\n <" + Usuario.class.getSimpleName() + ">";
+                "\n     <"+o.getClass().getDeclaredFields()[0].getName()+">"+ idUsuario +"</"+o.getClass().getDeclaredFields()[0].getName()+ ">" +
+                "\n     <"+o.getClass().getDeclaredFields()[1].getName()+">" + nombre + "</"+o.getClass().getDeclaredFields()[1].getName()+ ">" +
+                "\n     <"+o.getClass().getDeclaredFields()[2].getName()+">" + mail + "</"+o.getClass().getDeclaredFields()[2].getName()+">" +
+                "\n     <"+o.getClass().getDeclaredFields()[3].getName()+">" + fRegistro + "</"+o.getClass().getDeclaredFields()[3].getName()+">" +
+                "\n </" + Usuario.class.getSimpleName() + ">";
     }
 
     @Override
