@@ -149,7 +149,7 @@ public class Main {
     }
 
     public static void xmlToString() throws IOException {
-        String ruta = "/home/manuel/Descargas/usuarios.txt";
+        String ruta = "usuarios.txt";
         if (usuarios.usuarios.isEmpty()){
             System.err.println("No hay usuarios registrados.");
         } else {
@@ -162,7 +162,7 @@ public class Main {
             bw.write("</" + Usuario.class.getSimpleName().toUpperCase() + "S>");
             bw.close();
         }
-
+        System.out.println("Operación completada");
     }
 
     private static boolean validarID(int id) {
@@ -241,19 +241,26 @@ public class Main {
         int sel;
         boolean selValida = false;
 
-        while (!selValida){
+        while (!selValida) {
             try {
                 menu();
                 sel = sc.nextInt();
-                if (sel != 0){
-                    suich(sel); // el metodo con el switch
+                if (sel != 0) {
+                    try {
+                        suich(sel); // el metodo con el switch
+                    } catch (IOException e) {
+                        System.err.println("Error al manejar la opción: " + e.getMessage());
+                    }
                 } else if (sel == 0) {
                     System.out.println("Saliendo..");
                     selValida = true;
                     return;
-                } else System.out.println("Opción no válida.");
+                } else {
+                    System.out.println("Opción no válida.");
+                }
             } catch (Exception e) {
                 System.out.println("Solo se admiten números.");
+                sc.nextLine(); // Limpiar el buffer del scanner
             }
         }
     }
